@@ -12,7 +12,11 @@
         }
         
         input {
-            font-size: 1.3em;
+            font-size: 1.0em;
+        }
+        
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -20,11 +24,11 @@
 <body>
     <h1>Registration Form</h1>
     <form action="" method="post">
-        <div><input type="text" placeholder="full-name" name="full-name" value="Ben Arku" id="full-name"></div>
-        <div><input type="text" placeholder="username" name="username" value="benarku" id="username"></div>
-        <div><input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div>
-        <div><input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div>
-        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit">
+        <div>Full Name: <input type="text" placeholder="full-name" name="full-name" value="Ben Arku" id="full-name"></div>
+        <div>Username: <input type="text" placeholder="username" name="username" value="benarku" id="username"></div>
+        <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div>
+        <div>Password: <input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div>
+        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit"> <br> Already have an account? <a href="./login.html">Login</a>
     </form>
     <script>
         submitForm = () => {
