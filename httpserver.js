@@ -9,12 +9,14 @@ const server = http.createServer((req, res) => {
         fs.readFile('./registration.html', 'utf8', (err, data) => {
             res.end(data);
         })
-    } else if (req.url === '/login' && req.method === "GET") {
+    } else if (req.url === '/login.html' && req.method === "GET") {
         fs.readFile('./login.html', 'utf8', (err, data) => {
             res.end(data)
         })
     } else if (req.url === '/profile' && req.method === "GET") {
-
+        fs.readFile(',/profile.html', 'utf8', (err, data) => {
+            res.end(data);
+        })
     } else if (req.url === '/registration' && req.method === "POST") {
         let body = '';
         req.on("data", (data) => {
@@ -40,6 +42,11 @@ const server = http.createServer((req, res) => {
         })
 
     }
+    var str1 = fs.readFileSync('./profile.html', 'utf-8');
+    var str2 = fs.readFileSync('./registration.json', 'utf-8');
+
+    str1 === str2
+        // returns true if same content
 })
 
 server.listen(3100, () => {
