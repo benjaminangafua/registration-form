@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
         fs.readFile('./registration.html', 'utf8', (err, data) => {
             res.end(data);
         })
-    } else if (req.url === '/login.html' && req.method === "GET") {
+    } else if (req.url === '/login' && req.method === "GET") {
         fs.readFile('./login.html', 'utf8', (err, data) => {
             res.end(data)
         })
@@ -42,12 +42,8 @@ const server = http.createServer((req, res) => {
 
 
     } else if (req.url === '/profile' && req.method === "GET") {
-<<<<<<< HEAD
 
         fs.readFile('./profile.html', 'utf8', (err, data) => {
-=======
-        fs.readFile(',/profile.html', 'utf8', (err, data) => {
->>>>>>> c5e3280e5af6fa79d462d15a0f5bc70aefa381c0
             res.end(data);
         })
     } else if (req.url === '/registration' && req.method === "POST") {
