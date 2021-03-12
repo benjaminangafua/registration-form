@@ -7,23 +7,53 @@
     <title>Document</title>
     <style>
         body {
+            background-color: rgb(110, 108, 108);
             display: grid;
             justify-items: center;
         }
         
+        a {
+            text-decoration: none;
+            color: rgb(4, 0, 252);
+            font-style: italic;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        #container {
+            background-color: rgb(230, 88, 45);
+            margin-top: 5%;
+            padding: 2% 3% 3% 3%;
+        }
+        
+        #submit {
+            background-color: black;
+            color: white;
+            margin-left: 35%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
         input {
-            font-size: 1.3em;
+            font-size: 1.0em;
+            margin-top: 5%;
         }
     </style>
 </head>
 
 <body>
-    <h1>Login Form</h1>
-    <form action="" method="post">
-        <div><input type="text" placeholder="username" value="benjamkin " name="username" id="username"></div>
-        <div><input type="password" placeholder="password" value=" etsegdvfd" name="password" id="password"></div>
-        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit">
-    </form>
+    <div id="container">
+        <h1>Login Form</h1>
+        <form action="" method="post">
+            <div>Username: &nbsp; <input type="text" placeholder="username" name="username" id="username"></div>
+            <div>Password: &nbsp; <input type="password" placeholder="password" name="password" id="password"></div>
+            <input type="checkbox" onclick="hidePasswod()" style="margin-left:30%;"> Show Password
+            <br> <br> Don't have an account? <a href="/"><strong>Sign Up</strong> </a> <br><br>
+            <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit">
+        </form>
+    </div>
     <script>
         submitForm = () => {
             let username = document.getElementById('username').value;
@@ -45,6 +75,14 @@
                         window.location.href = "/profile"
                     }
                 })
+        }
+        hidePasswod = () => {
+            x = document.getElementById('password');
+            if (x.type === 'password') {
+                x.type = 'text';
+            } else {
+                x.type = "password"
+            }
         }
     </script>
 </body>

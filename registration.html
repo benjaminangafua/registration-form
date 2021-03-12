@@ -7,41 +7,80 @@
     <title>Document</title>
     <style>
         body {
+            background-color: rgb(126, 124, 122);
             display: grid;
             justify-items: center;
         }
         
         input {
             font-size: 1.0em;
+            margin-top: 5%;
         }
         
         a {
             text-decoration: none;
+            font-style: italic;
+            color: rgb(38, 1, 248);
+        }
+        
+        #main {
+            background-color: rgb(250, 94, 3);
+            padding: 3%;
+            border-radius: 5px;
+        }
+        
+        #submit {
+            margin-left: 20%;
+            color: lemonchiffon;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgb(0, 3, 3);
         }
     </style>
 </head>
 
 <body>
-    <h1>Registration Form</h1>
-    <form action="" method="post">
-        <div>Full Name: <input type="text" placeholder="full-name" name="full-name" value="Ben Arku" id="full-name"></div>
-        <div>Username: <input type="text" placeholder="username" name="username" value="benarku" id="username"></div>
-        <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div>
-        <div>Password: <input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div>
-        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit"> <br> Already have an account? <a href="./login.html">Login</a>
-    </form>
+    <div id="main">
+        <h1>Registration Form</h1>
+        <form action="" method="post">
+            <!-- Full name -->
+            <div>Full Name:
+                <input type="text" placeholder="full-name" name="full-name" id="full-name" required>
+            </div>
+            <!-- username -->
+            <div>Username:
+                <input type="text" placeholder="username" name="username" id="username" required>
+            </div>
+            <!-- Email -->
+            <div>Email: &nbsp; &nbsp; &nbsp;
+                <input type="email" placeholder="email" name="email" id="email" required>
+            </div>
+            <!-- password -->
+            <div>Password:
+                <input type="password" placeholder="password" name="password" id="myInput" id="password" required> <br>
+                <input type="checkbox" onclick="hidePassword()" style="margin-left: 35%;">Show Password
+            </div><br>
+            <!-- Submit button -->
+            Already have an account? <a href="/login"><strong>Login</strong> </a> <br>
+            <input type="button" value="Create Account" name="submit" onclick="submitForm()" id="submit">
+        </form>
+    </div>
     <script>
         submitForm = () => {
+            //DOM manipulation
             let full_name = document.getElementById('full-name').value;
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
+
+            // storing input values in obj object
             let obj = {
                 full_name: full_name,
                 username: username,
                 email: email,
                 password: password
             };
+            // using fetch to send data to the backend serve with the /registration route
             fetch('/registration', {
                     method: "POST",
                     "Content-Type": "application/json",
@@ -49,8 +88,17 @@
                 })
                 .then(resp => resp.json())
                 .then(data => {
+                    // To see output in the browser
                     console.log("Html", data)
                 })
+        }
+        hidePassword = () => {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
         }
     </script>
 </body>
