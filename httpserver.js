@@ -76,7 +76,6 @@ const server = http.createServer((req, res) => { //creating server
 
     }
 })
-
 server.listen(3500, () => {
     console.log('Listening on port 3500')
 })
