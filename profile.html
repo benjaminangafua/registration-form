@@ -31,10 +31,14 @@
         }
         
         #container {
-            background-color: rgb(230, 88, 45);
             margin-top: 5%;
+            background-color: rgb(223, 218, 215);
+            /* border: groove blue; */
+            box-shadow: 1px 8px #444342;
+            padding: 3%;
             border-radius: 5px;
-            padding: 2% 3% 3% 3%;
+            width: 35%;
+            height: 500px;
         }
     </style>
 </head>
@@ -53,7 +57,7 @@
                     di.insertAdjacentHTML("afterend", `
                     <div class="profile">  
                         <h1 id="fullName">  ${data.data.full_name} </h1> 
-                        <div> Username: ${data.data.username} </div> 
+                        <div> Username: ${data.data.username} </div>  <br>
                         <div> Email: <a href="mailto:${data.data.email}">${data.data.email}</a> </div> 
                     </div>
                     `)

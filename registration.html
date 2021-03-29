@@ -12,29 +12,49 @@
             justify-items: center;
         }
         
-        input {
+        #check,
+        #full-name,
+        #username,
+        #password,
+        #email {
             font-size: 1.0em;
+            /* padding-left: 10%; */
+            border-radius: 5px;
+            border: 1px solid;
             margin-top: 5%;
+            height: 1.5em;
+            box-shadow: 0px 3px rgba(121, 120, 120, 0.533)
+        }
+        
+        #check {
+            margin-left: 35%;
         }
         
         a {
             text-decoration: none;
             font-style: italic;
-            color: rgb(38, 1, 248);
+            color: rgb(3, 8, 247);
         }
         
         #main {
-            background-color: rgb(250, 94, 3);
+            background-color: rgb(253, 253, 253);
+            margin-top: 10%;
+            box-shadow: 1px 8px #444342;
             padding: 3%;
             border-radius: 5px;
         }
         
         #submit {
-            margin-left: 20%;
-            color: lemonchiffon;
+            margin-left: 30%;
+            margin-top: 5%;
             cursor: pointer;
             border-radius: 5px;
-            background-color: rgb(0, 3, 3);
+            color: white;
+            padding: 4px;
+            font-size: 17px;
+            font-style: oblique;
+            font-family: 'Times New Roman';
+            background-color: rgb(10, 34, 34);
         }
     </style>
 </head>
@@ -45,7 +65,7 @@
         <form action="" method="post">
             <!-- Full name -->
             <div>Full Name:
-                <input type="text" placeholder="full-name" name="full-name" id="full-name" required>
+                <input type="text" placeholder="Full Name" name="full-name" id="full-name" required>
             </div>
             <!-- username -->
             <div>Username:
@@ -53,16 +73,16 @@
             </div>
             <!-- Email -->
             <div>Email: &nbsp; &nbsp; &nbsp;
-                <input type="email" placeholder="email" name="email" id="email" required>
+                <input type="email" placeholder="Email" name="email" id="email" required>
             </div>
             <!-- password -->
             <div>Password:
-                <input type="password" placeholder="password" name="password" id="myInput" id="password" required> <br>
-                <input type="checkbox" onclick="hidePassword()" style="margin-left: 35%;">Show Password
+                <input type="password" placeholder="Password" name="password" id="password" required> <br>
+                <input type="checkbox" id="check" onclick="hidePassword()">Show Password
             </div><br>
             <!-- Submit button -->
             Already have an account? <a href="/login"><strong>Login</strong> </a> <br>
-            <input type="button" value="Create Account" name="submit" onclick="submitForm()" id="submit">
+            <input type="button" value="Sign Up" name="submit" onclick="submitForm()" id="submit">
         </form>
     </div>
     <script>
@@ -93,7 +113,7 @@
                 })
         }
         hidePassword = () => {
-            var x = document.getElementById("myInput");
+            var x = document.getElementById("password");
             if (x.type === "password") {
                 x.type = "text";
             } else {
