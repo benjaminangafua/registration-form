@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="icon" href="./ben.jpg">
     <style>
         body {
             background-color: rgb(110, 108, 108);
@@ -31,17 +32,15 @@
         }
         
         #check,
-        #full-name,
         #username,
-        #password,
-        #email {
+        #password {
             font-size: 1.0em;
             /* padding-left: 10%; */
-            border-radius: 5px;
-            border: 1px solid;
+            border-radius: 3px;
             margin-top: 5%;
             height: 1.5em;
-            box-shadow: 0px 3px rgba(121, 120, 120, 0.533)
+            border: 1px groove rgb(196, 193, 193);
+            box-shadow: 0px 2.8px rgba(8, 7, 7, 0.533)
         }
         
         #check {
@@ -52,8 +51,8 @@
             margin-left: 40%;
             margin-top: 5%;
             cursor: pointer;
-            border-radius: 5px;
-            padding: 8px;
+            border-radius: 11px;
+            padding: 4px 18px 4px 18px;
             color: white;
             font-size: 17px;
             font-style: oblique;
@@ -72,8 +71,8 @@
     <div id="container">
         <h1>Login Form</h1>
         <form action="" method="post">
-            <div>Username: &nbsp; <input type="text" placeholder="username" name="username" id="username"></div>
-            <div>Password: &nbsp; <input type="password" placeholder="password" name="password" id="password"></div>
+            <div>Username: &nbsp; <input type="text" placeholder="username" name="username" id="username" required autofocus></div>
+            <div>Password: &nbsp; <input type="password" placeholder="password" name="password" id="password" required autofocus></div>
             <input type="checkbox" onclick="hidePasswod()" id="check"> Show Password
             <br> <br> Don't have an account? <a href="/"><strong>Sign Up</strong> </a> <br><br>
             <input type="button" value="LOGIN" name="submit" onclick="submitForm()" id="submit">

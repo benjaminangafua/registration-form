@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration</title>
+    <link rel="icon" href="./ben.jpg">
     <style>
         body {
             background-color: rgb(126, 124, 122);
@@ -18,12 +19,12 @@
         #password,
         #email {
             font-size: 1.0em;
-            /* padding-left: 10%; */
+            /* outline: none; */
             border-radius: 5px;
-            border: 1px solid;
             margin-top: 5%;
             height: 1.5em;
-            box-shadow: 0px 3px rgba(121, 120, 120, 0.533)
+            border: 1px groove rgb(196, 193, 193);
+            box-shadow: 0px 3px rgba(8, 7, 7, 0.533)
         }
         
         #check {
@@ -41,16 +42,16 @@
             margin-top: 10%;
             box-shadow: 1px 8px #444342;
             padding: 3%;
-            border-radius: 5px;
+            border-radius: 11px;
         }
         
         #submit {
             margin-left: 30%;
             margin-top: 5%;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 3px;
             color: white;
-            padding: 4px;
+            padding: 4px 18px 4px 18px;
             font-size: 17px;
             font-style: oblique;
             font-family: 'Times New Roman';
@@ -65,19 +66,19 @@
         <form action="" method="post">
             <!-- Full name -->
             <div>Full Name:
-                <input type="text" placeholder="Full Name" name="full-name" id="full-name" required>
+                <input type="text" placeholder="Full Name" name="full-name" id="full-name" autofocus required>
             </div>
             <!-- username -->
             <div>Username:
-                <input type="text" placeholder="username" name="username" id="username" required>
+                <input type="text" placeholder="username" name="username" id="username" autofocus required>
             </div>
             <!-- Email -->
             <div>Email: &nbsp; &nbsp; &nbsp;
-                <input type="email" placeholder="Email" name="email" id="email" required>
+                <input type="email" placeholder="Email" name="email" id="email" autofocus required>
             </div>
             <!-- password -->
             <div>Password:
-                <input type="password" placeholder="Password" name="password" id="password" required> <br>
+                <input type="password" placeholder="Password" name="password" id="password" autofocus required> <br>
                 <input type="checkbox" id="check" onclick="hidePassword()">Show Password
             </div><br>
             <!-- Submit button -->
