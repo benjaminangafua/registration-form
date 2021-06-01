@@ -1,6 +1,7 @@
 const http = require('http'); //importing http module
 const fs = require("fs"); //importing file system module
 let userdata; //global variable for hosting username with all the other data for registration.json file
+
 const server = http.createServer((req, res) => { //creating server
     res.statusCode = 200; //successful loading of page
     res.setHeader('Content-Type', 'text/html'); //file type

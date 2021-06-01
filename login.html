@@ -73,7 +73,10 @@
         <form action="" method="post">
             <div>Username: &nbsp; <input type="text" placeholder="username" name="username" id="username" required autofocus></div>
             <div>Password: &nbsp; <input type="password" placeholder="password" name="password" id="password" required autofocus></div>
-            <input type="checkbox" onclick="hidePasswod()" id="check"> Show Password
+            <label for="check">
+                <input type="checkbox" onclick="hidePasswod()" id="check"> 
+                Show Password
+            </label>
             <br> <br> Don't have an account? <a href="/"><strong>Sign Up</strong> </a> <br><br>
             <input type="button" value="LOGIN" name="submit" onclick="submitForm()" id="submit">
         </form>
