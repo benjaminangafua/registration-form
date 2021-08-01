@@ -4,10 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile Page</title>
+    <link rel="icon" href="./ben.jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: rgb(110, 108, 108);
+            display: grid;
+            justify-items: center;
+        }
+        
+        a {
+            font-style: italic;
+        }
+        
+        #fullName {
+            text-align: center;
+            font-size: larger;
+        }
+        
+        .profile {
+            font-size: larger;
+            padding: 1em;
+        }
+        
+        #container {
+            margin-top: 5%;
+            background-color: rgb(223, 218, 215);
+            /* border: groove blue; */
+            box-shadow: 1px 8px #444342;
+            padding: 3%;
+            border-radius: 11px;
+            width: 35%;
+            height: 500px;
+        }
+    </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <form action="/submit" method="POST">
         <h1>My Profile</h1>
         <div>Full Name:<input type="text" name="" id=""></div>
@@ -15,6 +53,31 @@
         <div>Password:<input type="text" name="" id=""></div>
         <div>Email:<input type="text" name="" id=""></div>
     </form>
+=======
+    <div id="container">
+        <div id="demo"></div>
+    </div>
+    <script>
+        let di = document.getElementById('demo')
+        myFetch = () => {
+            fetch('/profileData')
+                .then((response) => response.json())
+                .then((data) => {
+
+                    di.insertAdjacentHTML("afterend", `
+                    <div class="profile">  
+                        <h1 id="fullName">  ${data.data.full_name} </h1> 
+                        <div> Username: ${data.data.username} </div>  <br>
+                        <div> Email: <a href="mailto:${data.data.email}">${data.data.email}</a> </div> 
+                    </div>
+                    `)
+                }).catch(err => {
+                    console.log(err)
+                })
+        }
+        myFetch();
+    </script>
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
 </body>
 <script>
 </script>

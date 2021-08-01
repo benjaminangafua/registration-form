@@ -4,15 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration</title>
+    <link rel="icon" href="./ben.jpg">
     <style>
         body {
+            background-color: rgb(126, 124, 122);
             display: grid;
             justify-items: center;
         }
         
-        input {
+        #check,
+        #full-name,
+        #username,
+        #password,
+        #email {
             font-size: 1.0em;
+            /* outline: none; */
+            border-radius: 5px;
+            margin-top: 5%;
+            height: 1.5em;
+            border: 1px groove rgb(196, 193, 193);
+            box-shadow: 0px 3px rgba(8, 7, 7, 0.533)
+        }
+        
+        #check {
+            margin-left: 35%;
         }
         /* The form style */
         
@@ -30,11 +46,35 @@
         a {
             color: mediumblue;
             text-decoration: none;
+            font-style: italic;
+            color: rgb(3, 8, 247);
+        }
+        
+        #main {
+            background-color: rgb(253, 253, 253);
+            margin-top: 10%;
+            box-shadow: 1px 8px #444342;
+            padding: 3%;
+            border-radius: 11px;
+        }
+        
+        #submit {
+            margin-left: 30%;
+            margin-top: 5%;
+            cursor: pointer;
+            border-radius: 3px;
+            color: white;
+            padding: 4px 18px 4px 18px;
+            font-size: 17px;
+            font-style: oblique;
+            font-family: 'Times New Roman';
+            background-color: rgb(10, 34, 34);
         }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <!--  The registration form-->
     <form action="" method="post">
         <h1>Registration Form</h1>
@@ -46,23 +86,59 @@
         <b style="margin-left: 10%;"> Already have an account? <a href="./login.html">Login</a></b><br> <br>
         <button style="cursor: pointer;" type="submit" name="submit" onclick="submitForm()" id="submit">Submit</button>
     </form>
+=======
+    <div id="main">
+        <h1>Registration Form</h1>
+        <form action="" method="post">
+            <!-- Full name -->
+            <div>Full Name:
+                <input type="text" placeholder="Full Name" name="full-name" id="full-name" autofocus required>
+            </div>
+            <!-- username -->
+            <div>Username:
+                <input type="text" placeholder="username" name="username" id="username" autofocus required>
+            </div>
+            <!-- Email -->
+            <div>Email: &nbsp; &nbsp; &nbsp;
+                <input type="email" placeholder="Email" name="email" id="email" autofocus required>
+            </div>
+            <!-- password -->
+            <div>Password:
+                <input type="password" placeholder="Password" name="password" id="password" autofocus required> <br>
+                <input type="checkbox" id="check" onclick="hidePassword()">Show Password
+            </div><br>
+            <!-- Submit button -->
+            Already have an account? <a href="/login"><strong>Login</strong> </a> <br>
+            <input type="button" value="Sign Up" name="submit" onclick="submitForm()" id="submit">
+        </form>
+    </div>
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
     <script>
         // At getting value from the input field to the DOM when ever submit button is clicked
         submitForm = () => {
+            //DOM manipulation
             let full_name = document.getElementById('full-name').value;
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
+<<<<<<< HEAD
             // Store input field value in the obj variable
+=======
+            // storing input values in obj object
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
             let obj = {
                 full_name: full_name,
                 username: username,
                 email: email,
                 password: password
             };
+<<<<<<< HEAD
 
             // Getting the route to submit the input field to the backend
+=======
+            // using fetch to send data to the backend serve with the /registration route
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
             fetch('/registration', {
                     method: "POST",
                     "Content-Type": "application/json",
@@ -70,15 +146,27 @@
                 })
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    // To see output in the browser
+                    console.log("Html", data)
                 })
         }
+<<<<<<< HEAD
         hidePassword = () => {
             var x = document.getElementById("password")
             if (x.type === "password") {
                 x.type = "text"
             } else {
                 x.type = "password"
+=======
+
+        //Show password
+        hidePassword = () => {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
             }
         }
     </script>

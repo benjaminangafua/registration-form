@@ -4,34 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="icon" href="./ben.jpg">
     <style>
         * {
             box-sizing: border-box;
         }
         
         body {
+            background-color: rgb(110, 108, 108);
             display: grid;
             justify-items: center;
         }
         
         a {
             text-decoration: none;
+<<<<<<< HEAD
         }
         
         form {
             margin-top: 5%;
             padding: 3% 5%;
             background-color: rgb(221, 221, 236);
+=======
+            color: rgb(4, 0, 252);
+            font-style: italic;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        #container {
+            background-color: rgb(223, 218, 215);
+            margin-top: 10%;
+            box-shadow: 1px 8px #444342;
+            padding: 3%;
+            border-radius: 5px;
+        }
+        
+        #check,
+        #username,
+        #password {
+            font-size: 1.0em;
+            /* padding-left: 10%; */
+            border-radius: 3px;
+            margin-top: 5%;
+            height: 1.5em;
+            border: 1px groove rgb(196, 193, 193);
+            box-shadow: 0px 2.8px rgba(8, 7, 7, 0.533)
+        }
+        
+        #check {
+            margin-left: 35%;
+        }
+        
+        #submit {
+            margin-left: 40%;
+            margin-top: 5%;
+            cursor: pointer;
+            border-radius: 11px;
+            padding: 4px 18px 4px 18px;
+            color: white;
+            font-size: 17px;
+            font-style: oblique;
+            font-family: 'Times New Roman';
+            background-color: rgb(10, 34, 34);
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
         }
         
         input {
             font-size: 1.0em;
+<<<<<<< HEAD
+=======
+            margin-top: 5%;
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
         }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <form action="/submit" method="post">
         <h1>Login Form</h1>
         <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div> <br><br>
@@ -42,10 +95,26 @@
 
         <b style="margin-left: 10%;"> Don't have an account? <a href="./registration.html">Register</a></b><br> <br>
     </form>
+=======
+    <div id="container">
+        <h1>Login Form</h1>
+        <form action="" method="post">
+            <div>Username: &nbsp; <input type="text" placeholder="username" name="username" id="username" required autofocus></div>
+            <div>Password: &nbsp; <input type="password" placeholder="password" name="password" id="password" required autofocus></div>
+            <label for="check">
+                <input type="checkbox" onclick="hidePasswod()" id="check"> 
+                Show Password
+            </label>
+            <br> <br> Don't have an account? <a href="/"><strong>Sign Up</strong> </a> <br><br>
+            <input type="button" value="LOGIN" name="submit" onclick="submitForm()" id="submit">
+        </form>
+    </div>
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
     <script>
         submitForm = () => {
-            let email = document.getElementById('email').value;
+            let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
+<<<<<<< HEAD
             let login_obj = {
                 email: email,
                 password: password
@@ -66,6 +135,32 @@
                 show.type = "text"
             } else {
                 show.type = "password"
+=======
+            let obj = {
+                username: username,
+                password: password
+            };
+            console.log(obj)
+            fetch('/login', {
+                    method: "POST",
+                    "Content-Type": "application/json",
+                    body: JSON.stringify(obj)
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    if (data.status === 0) {
+                        window.location.href = "/profile"
+                    }
+                })
+        }
+        hidePasswod = () => {
+            x = document.getElementById('password');
+            if (x.type === 'password') {
+                x.type = 'text';
+            } else {
+                x.type = "password"
+>>>>>>> 7061b53a9dfe3c2234a532733f8f81de506958b2
             }
         }
     </script>
