@@ -6,33 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             display: grid;
             justify-items: center;
         }
         
+        a {
+            text-decoration: none;
+        }
+        
+        form {
+            margin-top: 5%;
+            padding: 3% 5%;
+            background-color: rgb(221, 221, 236);
+        }
+        
         input {
-            font-size: 1.3em;
+            font-size: 1.0em;
         }
     </style>
 </head>
 
 <body>
-    <h1>Login Form</h1>
-    <form action="" method="post">
-        <div><input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div>
-        <div><input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div>
-        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit">
+    <form action="/submit" method="post">
+        <h1>Login Form</h1>
+        <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div> <br><br>
+        <div>Password: <input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div> <br>
+        <b style="margin-left: 36%; color: rgb(28, 158, 28);">Forgot password</b>
+        <br> <input type="checkbox" name="checkbox" id="checkbox" onclick="hidePassword()"> Show Password <br><br><br>
+        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit"> <br>
+
+        <b style="margin-left: 10%;"> Don't have an account? <a href="./registration.html">Register</a></b><br> <br>
     </form>
     <script>
         submitForm = () => {
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
-            // let obj = {
-            //     email: email,
-            //     password: password
-            // };
-            alert(username);
+            let login_obj = {
+                email: email,
+                password: password
+            }
+            fetch('/login', {
+                    method: "POST",
+                    'Content-Type': 'application/json',
+                    body: JSON.stringify(login_obj)
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data)
+                })
+        }
+        hidePassword = () => {
+            var show = document.getElementById('password');
+            if (show.type === "password") {
+                show.type = "text"
+            } else {
+                show.type = "password"
+            }
         }
     </script>
 </body>

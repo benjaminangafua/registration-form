@@ -14,34 +14,55 @@
         input {
             font-size: 1.0em;
         }
+        /* The form style */
+        
+        form {
+            margin-top: 5%;
+            border: solid rgb(114, 114, 114);
+            padding: 2% 3%;
+            background-color: rgb(214, 216, 219);
+        }
+        
+        div {
+            margin-top: 5%;
+        }
         
         a {
+            color: mediumblue;
             text-decoration: none;
         }
     </style>
 </head>
 
 <body>
-    <h1>Registration Form</h1>
+    <!--  The registration form-->
     <form action="" method="post">
-        <div>Full Name: <input type="text" placeholder="full-name" name="full-name" value="Ben Arku" id="full-name"></div>
-        <div>Username: <input type="text" placeholder="username" name="username" value="benarku" id="username"></div>
-        <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email"></div>
-        <div>Password: <input type="password" placeholder="password" value="benjaminarku" name="password" id="password"></div>
-        <input type="button" value="submit" name="submit" onclick="submitForm()" id="submit"> <br> Already have an account? <a href="./login.html">Login</a>
+        <h1>Registration Form</h1>
+        <div>Full Name: <input type="text" placeholder="Full Name" name="full-name" value="Ben Arku" id="full-name" required></div>
+        <div>Username: <input type="text" placeholder="username" name="username" value="benarku" id="username" required></div>
+        <div>Email: <input type="email" placeholder="email" value="benjaminarkutl2017@gmail.com" name="email" id="email" required></div>
+        <div>Password: <input type="password" placeholder="password" value="benjaminarku" name="password" id="password" required></div> <br>
+        <input type="checkbox" name="checkbox" id="checkbox" onclick="hidePassword()">Show password <br> <br>
+        <b style="margin-left: 10%;"> Already have an account? <a href="./login.html">Login</a></b><br> <br>
+        <button style="cursor: pointer;" type="submit" name="submit" onclick="submitForm()" id="submit">Submit</button>
     </form>
     <script>
+        // At getting value from the input field to the DOM when ever submit button is clicked
         submitForm = () => {
             let full_name = document.getElementById('full-name').value;
             let username = document.getElementById('username').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
+
+            // Store input field value in the obj variable
             let obj = {
                 full_name: full_name,
                 username: username,
                 email: email,
                 password: password
             };
+
+            // Getting the route to submit the input field to the backend
             fetch('/registration', {
                     method: "POST",
                     "Content-Type": "application/json",
@@ -51,6 +72,14 @@
                 .then(data => {
                     console.log(data)
                 })
+        }
+        hidePassword = () => {
+            var x = document.getElementById("password")
+            if (x.type === "password") {
+                x.type = "text"
+            } else {
+                x.type = "password"
+            }
         }
     </script>
 </body>
